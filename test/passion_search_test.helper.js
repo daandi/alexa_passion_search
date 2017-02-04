@@ -50,11 +50,21 @@ describe('PassionSearchClient', function(){
           relevantReviews: 8442 }
         ]);
     });
-
   });
 
+  describe('#passionInfo', function(){
+    var passion = 'rodeln'
+    it('returns requested passion', function() {
+      var res = subject.passionInfo(passion).then(function(obj){
+        console.log(obj);
+        return obj;
+      });
+      return expect(res).to.eventually.equal('Die beliebtesten Reiseziele zum rodeln sind Tirol,Bayern,Salzburger Land. Die besten Hotels zum rodeln sind Alpeiner Nature Resort Tirol,Hotel Gutjahr,Sunstar Alpine Hotel Arosa.')
+    });
+  })
+
   describe('#getReviews', function(){
-    var destUUID = '465741da-03ce-31f6-bac1-4e5e5f72da55'
+    var destUUID = '465741da-03ce-31f6-bac1-4e5e5f72da55';
     it('returns Reviews', function(){
       subject.getDestinationReviews(passion, destUUID).then(function(obj){
         return obj.body.reviews;

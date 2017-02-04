@@ -8,17 +8,26 @@ var TENANT = 'passion_alexa';
 
 function PassionSearchClient() {};
 
-  PassionSearchClient.prototype.getPassion = function(passion) {
-  };
+PassionSearchClient.prototype.getPassion = function(passion) {
+};
 
-PassionSearchClient.prototype.requestsPassion = function(passion) {
+PassionSearchClient.prototype.passionInfo = function(passion) {
   return this.getPassion(passion).then(
     function(response) {
       console.log('success - received passion info for ' + passion);
-      return response.body.aggregations;
+      var aggs = response.body.aggregations;
+      var helper = {
+        passion : passion,
+        hotels : aggs.hotels.map(function(hotel){return hotel.name;}).toString(),
+        regions: aggs.regions.map(function(region){return region.name;}).toString()
+      }
+
+      return 'Die beliebtesten Reiseziele zum ' + passion + ' sind ' + helper.regions +
+      '. Die besten Hotels zum ' + passion + ' sind ' + helper.hotels + '.' ;
     }
   );
 };
+
 
 PassionSearchClient.prototype.getPassion = function(passion) {
   var options = {
@@ -36,7 +45,7 @@ PassionSearchClient.prototype.getPassion = function(passion) {
   return rp(options);
 };
 
-PassionSearchClient.prototype.getDestinationReviews = function(passion, destUUID) {
+PassionSearchClient.prototype.getDestinationReviews = function(passion, destUUIDs) {
   var options = {
     method: 'GET',
     uri: REVIEW_ENDPOINT,

@@ -62,12 +62,13 @@ describe('PassionSearchClient', function(){
     });
   })
 
-  describe('#getReviews', function(){
+  /*describe('#getReviews', function(){
     var destUUID = '465741da-03ce-31f6-bac1-4e5e5f72da55';
     it('returns Reviews', function(){
       subject.getDestinationReviews(passion, destUUID).then(function(obj){
         return obj.body.reviews;
       })
     })
-  })
+  })*/
+  
 });

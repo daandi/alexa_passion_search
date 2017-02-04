@@ -5,7 +5,7 @@ chai.use(chaiAsPromised);
 var expect = chai.expect;
 chai.config.includeStack = true;
 
-var PassionSearchClient = require('../passion_search_client');
+var PassionSearchClient = require('../lib/passion_search_client');
 
 describe('PassionSearchClient', function(){
   var subject = new PassionSearchClient();
@@ -56,7 +56,6 @@ describe('PassionSearchClient', function(){
     var passion = 'rodeln'
     it('returns requested passion', function() {
       var res = subject.passionInfo(passion).then(function(obj){
-        console.log(obj);
         return obj;
       });
       return expect(res).to.eventually.equal('Die beliebtesten Reiseziele zum rodeln sind Tirol,Bayern,Salzburger Land. Die besten Hotels zum rodeln sind Alpeiner Nature Resort Tirol,Hotel Gutjahr,Sunstar Alpine Hotel Arosa.')

@@ -9,9 +9,9 @@ var languageStrings = {
     "de-DE": {
         "translation": {
             "SKILL_NAME" : "Holidaycheck Passion Search",
-            "HELP_MESSAGE" : "Sage 'Wo kann ich am besten wandern!' oder 'Ich möchte schnorcheln.' ",
+            "HELP_MESSAGE" : "Sage Wo kann ich am besten wandern oder Ich möchte schnorcheln ",
             "HELP_REPROMPT" : "Wie kann ich dir helfen?",
-            "STOP_MESSAGE" : "Lebe deine Passionen!"
+            "STOP_MESSAGE" : "Ich hoffe ich konnte dir helfen das perfekte Reiseziel zu finden"
         }
     }
 };
@@ -32,8 +32,9 @@ var handlers = {
     'GetPassion': function () {
         var passion = this.event.request.intent.slots.PASSION;
         console.log(passion);
-        passionInfo(passion.value).then(function(passionInfo){
-          console.log(passionInfo);
+        var passionString = passion.value;
+        passionInfo(passionString).then(function(passionResult){
+          console.log(passionResult);
           this.emit(':tellWithCard', passionInfo, this.t("SKILL_NAME"), passion)
         })
     },

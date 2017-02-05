@@ -2,7 +2,7 @@
 var Alexa = require('alexa-sdk');
 var PassionSearchClient= require('./lib/passion_search_client.js');
 
-var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
+var APP_ID = "reise planer";  // TODO replace with your app ID (OPTIONAL).
 var psc = new PassionSearchClient();
 
 var languageStrings = {
@@ -32,7 +32,8 @@ var handlers = {
     'GetPassion': function () {
         var passion = this.event.request.intent.slots.PASSION;
         console.log(passion);
-        passionInfo(passion).then(function(passionInfo){
+        passionInfo(passion.value).then(function(passionInfo){
+          console.log(passionInfo);
           this.emit(':tellWithCard', passionInfo, this.t("SKILL_NAME"), passion)
         })
     },

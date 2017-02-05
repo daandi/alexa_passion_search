@@ -31,6 +31,7 @@ var handlers = {
     },
     'GetPassion': function () {
         var passion = this.event.request.intent.slots.PASSION;
+        console.log(passion);
         passionInfo(passion).then(function(passionInfo){
           this.emit(':tellWithCard', passionInfo, this.t("SKILL_NAME"), passion)
         })

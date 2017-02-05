@@ -1,6 +1,6 @@
 'use strict';
 var Alexa = require('alexa-sdk');
-var PassionSearch = require('./lib/passion_search_client');
+var PassionSearchClient= require('./lib/passion_search_client.js');
 
 var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
 var psc = new PassionSearchClient();

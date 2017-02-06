@@ -32,10 +32,11 @@ var handlers = {
     'GetPassion': function () {
         var passion = this.event.request.intent.slots.PASSION;
         console.log(passion);
-        var passionString = passion.value;
-        passionInfo(passionString).then(function(passionResult){
+        psc.passionInfo(passion.value).then(function(passionResult){
           console.log(passionResult);
-          this.emit(':tellWithCard', passionInfo, this.t("SKILL_NAME"), passion)
+          var passionMessage =
+          passionResult.hotels + ' ' + passionResult.regions ;
+          this.emit(':tellWithCard', passionMessage, this.t("SKILL_NAME"), passion.value)
         })
     },
     'AMAZON.HelpIntent': function () {

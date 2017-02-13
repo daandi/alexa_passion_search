@@ -65,7 +65,7 @@ describe('Reiseplaner', function(){
         })
 
         it("should have a spoken response", () => {
-            expect(speechResponse.response.outputSpeech).not.to.be.null
+            expect(speechResponse.response.outputSpeech.ssml).to.equal("<speak> Die beliebtesten Reiseziele zum wein trinken sind Türkische Riviera,Mallorca,Hurghada/Safaga. Die besten Hotels zum wein trinken sind Hotel Siva Grand Beach,Dana Beach Resort,Alf Leila Wa Leila. </speak>")
         })
 
         it("should end the alexa session", function() {

@@ -16,40 +16,43 @@ describe('Reiseplaner', function(){
   var speechError = null
 
   before(function(done){
-    index.handler({
-  "session": {
-    "sessionId": "SessionId.f...",
-    "application": {
-      "applicationId": "amzn1.ask.skill...."
-    },
-    "attributes": {},
-    "user": {
-      "userId": "amzn1.ask.account....."
-    },
-    "new": true
-  },
-  "request": {
-    "type": "IntentRequest",
-    "requestId": "EdwRequestId....",
-    "locale": "de-DE",
-    "timestamp": "2017-02-13T15:43:13Z",
-    "intent": {
-      "name": "GetPassion",
-      "slots": {
-        "PASSION": {
-          "name": "PASSION",
-          "value": "wein trinken"
-        }
-      }
-    }
-  },
-  "version": "1.0"
-}, ctx)
+
+    index.handler(
+      {
+        "session": {
+          "sessionId": "SessionId.f...",
+          "application": {
+            "applicationId": "amzn1.ask.skill...."
+          },
+          "attributes": {},
+          "user": {
+            "userId": "amzn1.ask.account....."
+          },
+          "new": true
+        },
+        "request": {
+          "type": "IntentRequest",
+          "requestId": "EdwRequestId....",
+          "locale": "de-DE",
+          "timestamp": "2017-02-13T15:43:13Z",
+          "intent": {
+            "name": "GetPassion",
+            "slots": {
+              "PASSION": {
+                "name": "PASSION",
+                "value": "wein trinken"
+              }
+            }
+          }
+        },
+        "version": "1.0"
+      },
+      ctx);
 
       ctx.Promise
           .then(resp => { speechResponse = resp; done(); })
           .catch(err => { speechError = err; done(); })
-  })
+      })
 
   describe("The response is structurally correct for Alexa Speech Services", function() {
         it('should not have errored',function() {

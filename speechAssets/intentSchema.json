@@ -1,0 +1,47 @@
+{
+  "intents": [
+     {
+      "intent": "GetPassion",
+      "slots": [
+        {
+          "name": "PASSION",
+          "type": "LIST_OF_PASSIONS"
+        }
+      ]
+    },
+         {
+      "intent": "GetRegion",
+      "slots": [
+        {
+          "name": "REGION",
+          "type": "LIST_OF_REGIONS"
+        }
+      ]
+    },
+         {
+      "intent": "GetPassionRegion",
+      "slots": [
+        {
+          "name": "PASSION",
+          "type": "LIST_OF_PASSIONS"
+        },
+        {
+          "name": "REGION",
+          "type": "LIST_OF_REGIONS"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

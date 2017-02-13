@@ -1,0 +1,10 @@
+GetPassion wo man gut {PASSION} kann
+GetPassion wo kann ich {PASSION}
+GetPassion wo kann man am besten {PASSION}
+GetPassion wo kann man gut {PASSION}
+GetPassion ich möchte {PASSION}
+GetPassion ich will {PASSION}
+GetPassion beste urlaubsregion zum {PASSION}
+GetPassion {PASSION}
+GetPassionRegion {PASSION} auf {REGION}
+GetPassionRegion {PASSION} in {REGION}

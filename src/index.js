@@ -1,9 +1,9 @@
 'use strict';
 var Alexa = require('alexa-sdk');
 var PassionSearchClient= require('./lib/passion_search_client.js');
+var psc = new PassionSearchClient();
 
 var APP_ID = "reise planer";
-var psc = new PassionSearchClient();
 
 var languageStrings = {
     "de-DE": {
